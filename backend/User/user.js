@@ -1,6 +1,8 @@
 const express = require('express');
 const cors=require("cors");
 const bcrypt=require("bcrypt");
+const {User}=require("./db");
+
 
 
 const app=express();
@@ -18,7 +20,7 @@ app.post('/user/login',async(req,res)=>{
     const {email,password}=req.body;
 
     try{
-        const user=await UserModel.findOne({email});
+        const user=await User.findOne({email});
         if(!user){
             res.json({msg:'Email not registered'});
         }
@@ -44,7 +46,7 @@ app.post('user/signup',async(req,res)=>{
 
     try{
         const hash=await bcrypt.hash(password,10);
-        const user=await UserModel.create({email,password:hash,name,phoneNumber,address});
+        const user=await User.create({email,password:hash,name,phoneNumber,address});
         res.status(200).json(user);
     }
     catch(err){
