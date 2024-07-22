@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5003;
 
 
 
-// Route for fetching all orders
+// Getting all orders
 app.get('/api/orders/getOrders', async (req, res) => {
     try {
         const orders = await Order.find();
@@ -28,7 +28,7 @@ app.get('/api/orders/getOrders', async (req, res) => {
 
 
 
-// Route for adding a new order
+// Adding a New order
 app.post('/api/orders/putOrders', async (req, res) => {
     try {
         const { customerName, items, total } = req.body;
@@ -49,7 +49,7 @@ app.post('/api/orders/putOrders', async (req, res) => {
 
 
 
-// Route for adding a product to the cart
+// Adding Product to cart
 app.post('/api/order/cart/add', async (req, res) => {
     try {
         const { productId, productName, productImageURL, price, userEmail } = req.body; 
@@ -80,7 +80,7 @@ app.post('/api/order/cart/add', async (req, res) => {
 
 
 
-// Route for removing a product from the cart
+// Removing Product from cart
 app.delete('/api/order/cart/remove', async (req, res) => {
     try {
         const { productId, userEmail } = req.body;
@@ -105,7 +105,7 @@ app.delete('/api/order/cart/remove', async (req, res) => {
 
 
 
-// Route for fetching cart items
+// Getting Cart Items
 app.get('/api/order/cart/:userEmail', async (req, res) => {
     try {
         const userEmail = req.params.userEmail;
@@ -125,7 +125,7 @@ app.get('/api/order/cart/:userEmail', async (req, res) => {
 
 
 
-// Route for creating an order (checkout)
+// Creating order (checkout)
 app.post('/api/orders/create', async (req, res) => {
     try {
         const {
@@ -165,7 +165,7 @@ app.post('/api/orders/create', async (req, res) => {
 
 
 app.get('/api/orders/orderPage', async (req, res) => {
-    const { userID } = req.query; // Assuming the userID is sent as a query parameter
+    const { userID } = req.query; 
     try {
         const orders = await Order.find({ userId: userID }).sort({ createdAt: -1 });
         res.json(orders);
@@ -184,10 +184,6 @@ app.get("/", async (req, res)=>{
 });
 
 
-
-
-
-// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

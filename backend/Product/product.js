@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 5002;
 
 app.use(express.json());
 
+
+//Adding Product 
+
 app.post('/api/product', async (req, res) => {
     try {
         const { productName, productDetails, price, productImageURL } = req.body;
@@ -30,7 +33,7 @@ app.post('/api/product', async (req, res) => {
 
 
 
-
+// Getting Product id
 app.get('/api/product/:productId', async (req, res) => {
     try {
         const productId = req.params.productId;
@@ -47,7 +50,7 @@ app.get('/api/product/:productId', async (req, res) => {
 
 
 
-
+// Getting Product details
 
 app.get('/api/product', async (req, res) => {
     try {
