@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
+const {mongoUrl}=require('../db/Connection');
 
-mongoose.connect("mongodb+srv://admin:***@cluster0.m84bds3.mongodb.net/")
+mongoose.connect(mongoUrl)
 
 
 const cartSchema = new mongoose.Schema({
@@ -11,7 +12,6 @@ const cartSchema = new mongoose.Schema({
     items: [{
         productId: mongoose.Schema.Types.ObjectId,
         productName: String,
-        productImageURL: String,
         price: Number // Add price field
     }]
 });

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const {Product}= require("./db");
+const {Product}= require("../db/Product");
 
 
 const app = express();
@@ -16,12 +16,12 @@ app.use(express.json());
 
 app.post('/api/product', async (req, res) => {
     try {
-        const { productName, productDetails, price, productImageURL } = req.body;
+        const { productName, productDetails, price} = req.body;
         const product = new Product({
             productName,
             productDetails,
-            price,
-            productImageURL
+            price
+            
         });
         await product.save();
         res.status(201).json(product);

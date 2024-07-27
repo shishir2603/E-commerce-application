@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
+const {mongoUrl}=require('../db/Connection');
 
-mongoose.connect("mongodb+srv://admin:***@cluster0.m84bds3.mongodb.net/")
+mongoose.connect(mongoUrl);
 
 const productSchema=new mongoose.Schema({
     productName:{
@@ -19,10 +20,10 @@ const productSchema=new mongoose.Schema({
         type:Number,
         required:true
     },
-    productImage:{
-        type:String,
-        required:true
-    }
+    // productImage:{
+    //     type:String,
+    //     required:true
+    // }
 
 });
 

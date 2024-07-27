@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
+const {mongoUrl}=require('../db/Connection');
 
-mongoose.connect("mongodb+srv://admin:***@cluster0.m84bds3.mongodb.net/")
+mongoose.connect(mongoUrl)
 
 
 const orderSchema = new mongoose.Schema({

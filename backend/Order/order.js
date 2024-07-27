@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const {Order,Cart}=require("./db");
+const {Order}=require("../db/Order");
+const {Cart}=require("../db/Cart");
 
 
 
@@ -52,20 +53,20 @@ app.post('/api/orders/putOrders', async (req, res) => {
 // Adding Product to cart
 app.post('/api/order/cart/add', async (req, res) => {
     try {
-        const { productId, productName, productImageURL, price, userEmail } = req.body; 
+        const { productId, productName,  price, userEmail } = req.body; 
         let cart = await Cart.findOne({ userEmail });
 
         if (!cart) {
             cart = new Cart({
                 userEmail,
-                items: [{ productId, productName, productImageURL, price }] 
+                items: [{ productId, productName, price }] 
             });
         } else {
             const existingCartItem = cart.items.find(item => item.productId.equals(productId));
             if (existingCartItem) {
                 return res.status(400).send('Product already in cart');
             }
-            cart.items.push({ productId, productName, productImageURL, price }); 
+            cart.items.push({ productId, productName,  price }); 
         }
 
         await cart.save();
