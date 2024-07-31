@@ -1,0 +1,47 @@
+/* addProduct.css */
+
+/* Container for the form */
+.form-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  /* General styling for input fields */
+  input[type="text"],
+  input[type="number"], /* Style for the price input field */
+  textarea,
+  input[type="file"] {
+    width: calc(100% - 20px); /* Adjusting for padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* Styling for buttons */
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Styling for form sections */
+  div {
+    margin-bottom: 20px;
+  }

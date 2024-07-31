@@ -1,0 +1,44 @@
+.orders-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.order-list {
+    margin-top: 20px;
+}
+
+.order-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.order-item h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.order-details {
+    margin-top: 10px;
+}
+
+.order-details h3 {
+    margin-top: 0;
+}
+
+.order-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-details ul li {
+    margin-bottom: 5px;
+}
+
+p.no-orders {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
