@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const {Product}= require("../db/Product");
+const {Product}= require("./Product_sch");
 
 
 const app = express();
@@ -78,6 +78,6 @@ app.get('/api/product', async (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(5002, () => {
+    console.log("Server is running on Port 5002");
 });

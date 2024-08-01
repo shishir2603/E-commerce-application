@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const {Order}=require("../db/Order");
-const {Cart}=require("../db/Cart");
+const {Order}=require("./Order_sch");
+const {Cart}=require("./Cart");
 
 
 
@@ -185,6 +185,6 @@ app.get("/", async (req, res)=>{
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(5003, () => {
+    console.log("Server is running on Port 5003");
 });

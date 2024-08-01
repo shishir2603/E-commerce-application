@@ -1,5 +1,5 @@
 
-const {User}=require("../db/User");
+const {User}=require("./User_sch");
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');

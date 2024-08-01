@@ -1,7 +1,6 @@
 const mongoose=require('mongoose');
-const {mongoUrl}=require('../db/Connection');
 
-mongoose.connect(mongoUrl)
+mongoose.connect("mongodb+srv://admin:Keshav427@cluster0.m84bds3.mongodb.net/")
 
 
 const cartSchema = new mongoose.Schema({
