@@ -34,7 +34,7 @@ const CheckoutPage = () => {
     };
 
     const calculateTotal = () => {
-        return cartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
+        return 0;
     };
 
     const handleCheckout = async () => {
@@ -65,7 +65,7 @@ const CheckoutPage = () => {
 
             const response = await axios.post('http://localhost:5003/api/orders/create', checkoutData);
             console.log('Checkout successful:', response.data);
-
+            alert("Order placed ... Thank you")
             setDeliveryAddress('');
             setPaymentOption('cash');
             setCardNumber('');

@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  order-service:
+    image: order-service:latest
+    build:
+      context: ./backend/Order
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+
+  user-service:
+    image: user-service:latest
+    build:
+      context: ./backend/User
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+
+  product-service:
+    image: product-service:latest
+    build:
+      context: ./backend/Product
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+
+  client-app:
+    image: client-app:latest
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - order-service
+      - user-service
+      - product-service
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
