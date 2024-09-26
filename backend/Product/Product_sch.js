@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect("mongodb+srv://admin:Keshav427@cluster0.m84bds3.mongodb.net/");
+mongoose.connect(<'mongo-connection-string'>);
 
 const productSchema=new mongoose.Schema({
     productName:{
